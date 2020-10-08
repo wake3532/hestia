@@ -1,7 +1,6 @@
 import discord
 import asyncio
 import datetime
-import os
 
 client = discord.Client()
 
@@ -57,6 +56,10 @@ async def on_message(message):
         for i in range(1, len(vote)):
            choose = await message.channel.send(message.channel, vote[i])
            await client.add_reaction(choose, "👍")
+    if message.content == (";초대"):
+        await message.channel.send ("https://discord.com/api/oauth2/authorize?client_id=757426337479786577&permissions=8&scope=bot")
+    if message.content == (";hellothisisverification"):
+        await message.channel.send ("Hestia#1234")
 @client.event
 async def on_member_join(member):
     syschannel = member.guild.system_channel.id 
